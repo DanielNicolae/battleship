@@ -1,0 +1,22 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "This is part of the JavaScript course from [TheOdinProject](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/battleship \"theodinproject.com\")",
+  "main": "battleship.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielNicolae/battleship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielNicolae/battleship/issues"
+  },
+  "homepage": "https://github.com/DanielNicolae/battleship#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
