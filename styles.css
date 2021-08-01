@@ -17,7 +17,7 @@ html {
     }
       header .title {
         text-align: center;
-        font-size: 20px;
+        font-size: 2rem;
         margin: 5rem 0 2rem 0;
       }
         header .scoreboard {
@@ -30,7 +30,7 @@ html {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-size: 18px;
+            font-size: 1.5rem;
             font-weight: bold;
             margin: 2rem;
         }
@@ -39,28 +39,38 @@ html {
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      text-align: center;
     }
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(30, 20px);
-        
+      .container .computersGridContainer {
+        margin-top: 2rem;
       }
-        .cell {
-          width: 20px;
-          height: 20px;
+        .container div p {
+          font-size: 1.5rem;
+          font-weight: 900;
+          color:rgb(218, 218, 218);
+          text-shadow: 3px 3px 3px rgb(0, 0, 0);
+          padding: 1rem;
         }
-        .yourGrid .cell:nth-child(2n) {
-          background: rgb(255, 246, 114);
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(30, 1.5rem);
         }
-        .yourGrid .cell:nth-child(2n + 1) {
-          background: rgb(116, 255, 209);
-        }
-        .computersGrid .cell:nth-child(2n) {
-          background: rgb(192, 192, 192);
-        }
-        .computersGrid .cell:nth-child(2n + 1) {
-          background: rgb(139, 139, 139);
-        }
+          .cell1, .cell2 {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+          .yourGrid .cell1 {
+            background: rgb(255, 223, 44);
+          }
+          .yourGrid .cell2 {
+            background: rgb(255, 136, 0);
+          }
+          .computersGrid .cell1 {
+            background: rgb(194, 194, 194);
+          }
+          .computersGrid .cell2 {
+            background: rgb(139, 139, 139);
+          }
 
   @media screen and (max-width: 900px) {
     .container {
