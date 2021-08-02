@@ -1,11 +1,13 @@
-// const battleship = require("battleship");
+import battleship from "./battleship";
+
+const gridSize = 30;
 
 function generateGrids() {
   const yourGrid = document.getElementsByClassName("yourGrid")[0];
   const computersGrid = document.getElementsByClassName("computersGrid")[0];
   console.log(yourGrid);
-  for (let i = 0; i < 30; i++) {
-    for (let j = 0; j < 30; j++) {
+  for (let i = 0; i < gridSize; i++) {
+    for (let j = 0; j < gridSize; j++) {
       const cell1 = document.createElement("div");
       const cell2 = document.createElement("div");
       const cell3 = document.createElement("div");
@@ -37,3 +39,15 @@ function generateGrids() {
 }
 
 generateGrids();
+
+function launchFleets() {
+  const ships = ["destroyer", "aircraft_carrier", "frigate", "cruiser"]
+  for (let i = 0; i < 10; i++) {
+    const randomX = Math.floor(Math.random() * gridSize * 2);
+    const randomY = Math.floor(Math.random() * gridSize * 2);
+    const ship = Math.floor(Math.random() * ships.length);
+    battleship(ships[ship], randomX, randomY);
+  }
+}
+
+launchFleets();
