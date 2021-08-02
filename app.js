@@ -26,6 +26,7 @@ function returnCoordonates(x, y) {
 }
 
 function hit(a, b) {
+  let hit = false;
   const coordonates = returnCoordonates(a, b);
   console.log(coordonates);
   for (let i = 0; i < computersFleet.length; i++) {
@@ -37,11 +38,13 @@ function hit(a, b) {
     console.log(`coordonates.y = ${coordonates.y}`);
     console.log("============================");
     if (coordonates.x === xCoord && coordonates.y === yCoord) {
+      hit = true;
       console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
       console.log("HIT!");
       console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
   }
+  return hit;
 }
 
 function generateGrids() {
@@ -59,8 +62,20 @@ function generateGrids() {
       cell3.classList.add("enemysCell");
       cell4.classList.add("cell2");
       cell4.classList.add("enemysCell");
-      cell4.addEventListener("click", () => hit(j, i));
-      cell3.addEventListener("click", () => hit(j, i));
+      cell4.addEventListener("click", () => {
+        let hitted = hit(j, i);
+        console.log(hitted);
+        if (hitted) {
+          cell4.classList.add("hitted");
+        }
+      });
+      cell3.addEventListener("click", () => () => {
+        let hitted = hit(j, i);
+        console.log(hitted);
+        if (hitted) {
+          cell3.classList.add("hitted");
+        }
+      });
       if (i % 2 === 0) {
         if (i + j % 2 - i > 0) {
           yourGrid.appendChild(cell1);
