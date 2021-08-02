@@ -33,7 +33,6 @@ function generateGrids() {
           computersGrid.appendChild(cell3);
         }
       }
-
     }
   }
 }
@@ -41,13 +40,16 @@ function generateGrids() {
 generateGrids();
 
 function launchFleets() {
-  const ships = ["destroyer", "aircraft_carrier", "frigate", "cruiser"]
+  const ships = ["destroyer", "aircraft_carrier", "frigate", "cruiser"];
+  const launchedShips = [];
   for (let i = 0; i < 10; i++) {
     const randomX = Math.floor(Math.random() * gridSize * 2);
     const randomY = Math.floor(Math.random() * gridSize * 2);
     const ship = Math.floor(Math.random() * ships.length);
-    battleship(ships[ship], randomX, randomY);
+    launchedShips.append(battleship(ships[ship], randomX, randomY));
   }
+  return launchedShips;
 }
 
-launchFleets();
+const myFleet = launchFleets();
+const computersFleet = launchFleets();
