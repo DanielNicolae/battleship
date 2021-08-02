@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/DanielNicolae/battleship.git"
   },
-  "author": "",
+  "author": "DanielNicolae",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DanielNicolae/battleship/issues"
