@@ -83,9 +83,13 @@ html {
             .computersGrid .cell2 {
               background: rgb(139, 139, 139);
             }
+            .computersGrid .ship {
+              background: green;
+            }
             .computersGrid .hitted, .yourGrid .hitted {
               background: red;
             }
+            
     footer {
       margin-top: 1em;
       padding-top: 2em;
@@ -124,36 +128,41 @@ html {
     html {
       height: 150%;
     }
-    
-      .grid {
-        grid-template-columns: repeat(20, 1.5rem);
+      main .instructions {
+        font-size: 2em;
       }
-        .cell1, .cell2 {
-          width: 1.5rem;
-          height: 1.5rem;
+        .grid {
+          grid-template-columns: repeat(20, 1.5rem);
         }
-        footer {
-          bottom: -50%;
-        }
+          .cell1, .cell2 {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+          footer {
+            bottom: -50%;
+          }
   }
   @media screen and (min-width: 1200px) {
     html {
       height: 100%;
     }
-        main .container {
-          flex-direction: row;
-        }
-          .container .computersGridContainer {
-            margin: 2rem 2rem 2rem 0;
-          }
-          footer p {
-            font-size: 1.5rem;
-          }
-              footer div .github svg {
-                width: 1.5rem;
-                height: 1.5rem;
-              }
-      footer {
-        bottom: 0;
+      header .title {
+        font-size: 5em;
       }
+          main .container {
+            flex-direction: row;
+          }
+            .container .computersGridContainer {
+              margin: 2rem 2rem 2rem 0;
+            }
+            footer p {
+              font-size: 1.5rem;
+            }
+                footer div .github svg {
+                  width: 1.5rem;
+                  height: 1.5rem;
+                }
+        footer {
+          bottom: 0;
+        }
   }

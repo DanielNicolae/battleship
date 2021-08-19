@@ -63,7 +63,18 @@ function enemyAttack(a, b) {
   return hit;
 }
 
+function setScore(yourScore, computerScore) {
+  const yourScoreText = document.getElementsByClassName("scoreValue")[0];
+  const computerScoreText = document.getElementsByClassName("scoreValue")[1];
+  yourScoreText.textContent = yourScore;
+  computerScoreText.textContent = computerScore;
+}
+
 function generateGrids() {
+  let yourScore = 0;
+  let computersScore = 0;
+  let yourHits = 0;
+  let computersHits = 0;
   const yourGrid = document.getElementsByClassName("yourGrid")[0];
   const computersGrid = document.getElementsByClassName("computersGrid")[0];
   for (let i = 0; i < gridSize; i++) {
@@ -82,15 +93,29 @@ function generateGrids() {
         cell1.classList.add("ship");
         cell2.classList.add("ship");
       }
+      if (hitTheEnemy(j, i)) {
+        cell3.classList.add("ship");
+        cell4.classList.add("ship");
+      }
       cell4.addEventListener("click", () => {
         let enemyHitted = hitTheEnemy(j, i);
         console.log("enemyHitted: " + enemyHitted);
         if (enemyHitted) {
           cell4.classList.add("hitted");
+          yourHits += 1;
+          if (yourHits >= 10) {
+            yourScore += 1;
+            setScore(yourScore, computersScore);
+          }
         }
         let iGotHitted = enemyAttack(j, i);
         if (iGotHitted) {
           cell2.classList.add("hitted");
+          computersHits += 1;
+          if (computersHits >= 10) {
+            computersScore += 1;
+            setScore(yourScore, computersScore);
+          }
         }
       });
       cell3.addEventListener("click", () => {
@@ -98,10 +123,20 @@ function generateGrids() {
         console.log("enemyHitted: " + enemyHitted2);
         if (enemyHitted2) {
           cell3.classList.add("hitted");
+          yourHits += 1;
+          if (yourHits >= 10) {
+            yourScore += 1;
+            setScore(yourScore, computersScore);
+          }
         }
         let iGotHitted = enemyAttack(j, i);
         if (iGotHitted) {
           cell1.classList.add("hitted");
+          computersHits += 1;
+          if (computersHits >= 10) {
+            computersScore += 1;
+            setScore(yourScore, computersScore);
+          }
         }
       });
       if (i % 2 === 0) {
