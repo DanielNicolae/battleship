@@ -2,7 +2,7 @@ function battleship(ship, x, y) {
   return ({ ship, x, y });
 }
 
-const gridSize = 30;
+const gridSize = 20;
 
 function launchFleets() {
   const ships = ["destroyer", "aircraft_carrier", "frigate", "cruiser"];
