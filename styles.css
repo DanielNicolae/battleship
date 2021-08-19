@@ -6,6 +6,7 @@
 html {
   background: linear-gradient( rgb(0, 125, 184), rgb(0, 10, 100));
   height: 100%;
+  width:100%;
 }
   body {
     font-family:  sans-serif;
@@ -86,11 +87,13 @@ html {
               background: red;
             }
     footer {
-      margin-top: 5em;
+      margin-top: 1em;
+      padding-top: 2em;
+      padding-bottom: 2em;
       position: absolute;
-      bottom: 2%;
       left: 0;
       right: 0;
+      background-color: rgb(58, 58, 58);
     }
       footer p {
         color: rgb(194, 194, 194);
@@ -118,32 +121,39 @@ html {
             
 
   @media screen and (min-width: 500px) {
-    .grid {
-      grid-template-columns: repeat(20, 1.5rem);
+    html {
+      height: 150%;
     }
-    .cell1, .cell2 {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
+    
+      .grid {
+        grid-template-columns: repeat(20, 1.5rem);
+      }
+        .cell1, .cell2 {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+        footer {
+          bottom: -50%;
+        }
   }
   @media screen and (min-width: 1200px) {
-    main .container {
-      flex-direction: row;
+    html {
+      height: 100%;
     }
-    .container .computersGridContainer {
-      margin: 2rem 2rem 2rem 0;
-    }
-    footer {
-      
-    }
-      footer p {
-        font-size: 1.5rem;
-      }
-        footer div .github {
-        
+        main .container {
+          flex-direction: row;
         }
-          footer div .github svg {
-            width: 1.5rem;
-            height: 1.5rem;
-          }  
+          .container .computersGridContainer {
+            margin: 2rem 2rem 2rem 0;
+          }
+          footer p {
+            font-size: 1.5rem;
+          }
+              footer div .github svg {
+                width: 1.5rem;
+                height: 1.5rem;
+              }
+      footer {
+        bottom: 0;
+      }
   }
