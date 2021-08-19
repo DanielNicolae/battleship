@@ -71,15 +71,20 @@
             .yourGrid .cell2 {
               background: rgb(255, 136, 0);
             }
+            .yourGrid .ship {
+              background: green;
+            }
             .computersGrid .cell1 {
               background: rgb(194, 194, 194);
             }
             .computersGrid .cell2 {
               background: rgb(139, 139, 139);
             }
-            .computersGrid .hitted {
+            .computersGrid .hitted, .yourGrid .hitted {
               background: red;
             }
+            
+            
 
   @media screen and (max-width: 900px) {
     .container {

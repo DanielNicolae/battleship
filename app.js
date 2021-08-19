@@ -18,30 +18,46 @@ function launchFleets() {
 
 const myFleet = launchFleets();
 const computersFleet = launchFleets();
+console.log('computersFleet:');
 console.log(computersFleet);
+console.log('myFleet:');
+console.log(myFleet);
 
 function returnCoordonates(x, y) {
   console.log({ x, y });
   return { x, y };
 }
 
-function hit(a, b) {
+function hitTheEnemy(a, b) {
   let hit = false;
   const coordonates = returnCoordonates(a, b);
-  console.log(coordonates);
+  console.log(`enemyShipCoordonates:${coordonates}`);
   for (let i = 0; i < computersFleet.length; i++) {
-    const xCoord = computersFleet[i].x;
-    const yCoord = computersFleet[i].y;
-    console.log(`xCoord = ${xCoord}`);
-    console.log(`yCoord = ${yCoord}`);
+    const enemyXCoord = computersFleet[i].x;
+    const enemyYCoord = computersFleet[i].y;
+    console.log(`xCoord = ${enemyXCoord}`);
+    console.log(`yCoord = ${enemyYCoord}`);
     console.log(`coordonates.x = ${coordonates.x}`);
     console.log(`coordonates.y = ${coordonates.y}`);
     console.log("============================");
-    if (coordonates.x === xCoord && coordonates.y === yCoord) {
+    if (coordonates.x === enemyXCoord && coordonates.y === enemyYCoord) {
       hit = true;
       console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
       console.log("HIT!");
       console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    }
+  }
+  return hit;
+}
+
+function enemyAttack(a, b) {
+  let hit = false;
+  const coordonates = returnCoordonates(a, b);
+  for (let i = 0; i < computersFleet.length; i++) {
+    const myXCoord = myFleet[i].x;
+    const myYCoord = myFleet[i].y;
+    if (coordonates.x === myXCoord && coordonates.y === myYCoord) {
+      hit = true;
     }
   }
   return hit;
@@ -62,18 +78,30 @@ function generateGrids() {
       cell3.classList.add("enemysCell");
       cell4.classList.add("cell2");
       cell4.classList.add("enemysCell");
+      if (enemyAttack(j, i)) {
+        cell1.classList.add("ship");
+        cell2.classList.add("ship");
+      }
       cell4.addEventListener("click", () => {
-        let hitted = hit(j, i);
-        console.log(hitted);
-        if (hitted) {
+        let enemyHitted = hitTheEnemy(j, i);
+        console.log("enemyHitted: " + enemyHitted);
+        if (enemyHitted) {
           cell4.classList.add("hitted");
         }
+        let iGotHitted = enemyAttack(j, i);
+        if (iGotHitted) {
+          cell2.classList.add("hitted");
+        }
       });
-      cell3.addEventListener("click", () => () => {
-        let hitted = hit(j, i);
-        console.log(hitted);
-        if (hitted) {
+      cell3.addEventListener("click", () => {
+        let enemyHitted2 = hitTheEnemy(j, i);
+        console.log("enemyHitted: " + enemyHitted2);
+        if (enemyHitted2) {
           cell3.classList.add("hitted");
+        }
+        let iGotHitted = enemyAttack(j, i);
+        if (iGotHitted) {
+          cell1.classList.add("hitted");
         }
       });
       if (i % 2 === 0) {
