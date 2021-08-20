@@ -24,7 +24,6 @@ console.log('myFleet:');
 console.log(myFleet);
 
 function returnCoordonates(x, y) {
-  console.log({ x, y });
   return { x, y };
 }
 
@@ -68,7 +67,19 @@ function setScore(yourScore, computerScore) {
   const computerScoreText = document.getElementsByClassName("scoreValue")[1];
   yourScoreText.textContent = yourScore;
   computerScoreText.textContent = computerScore;
+  const score = { "yourScore": yourScore, "computerScore": computerScore };
+  localStorage.setItem("score", JSON.stringify(score));
 }
+
+function getScoreFromLocalStorage() {
+  const scoreFromLS = localStorage.getItem("score");
+  const scoreJSON = JSON.parse(scoreFromLS);
+  const yourScoreText = document.getElementsByClassName("scoreValue")[0];
+  const computerScoreText = document.getElementsByClassName("scoreValue")[1];
+  yourScoreText.textContent = scoreJSON.yourScore;
+  computerScoreText.textContent = scoreJSON.computerScore;
+}
+getScoreFromLocalStorage();
 
 function generateGrids() {
   let yourScore = 0;
@@ -94,10 +105,12 @@ function generateGrids() {
         cell1.classList.add("ship");
         cell2.classList.add("ship");
       }
-      if (hitTheEnemy(j, i)) {
-        cell3.classList.add("ship");
-        cell4.classList.add("ship");
-      }
+      //////////////////
+      // if (hitTheEnemy(j, i)) { //for debugging
+      //   cell3.classList.add("ship");
+      //   cell4.classList.add("ship");
+      // }
+      //////////////////
       cell4.addEventListener("click", () => {
         let enemyHitted = hitTheEnemy(j, i);
         console.log("enemyHitted: " + enemyHitted);
