@@ -37,7 +37,8 @@ html {
         }
       header .winner {
         text-align: center;
-        font-size: 1.7rem;
+        font-size: 3rem;
+        font-weight: 900;
         margin: 1rem 0 1rem 0;
       }  
     main {
@@ -98,6 +99,9 @@ html {
         border-radius: 0.2em;
         padding: 0.5em;
         margin-top: 1em;
+        box-shadow: 5px 5px 5px rgb(0, 0, 0),
+                    inset -3px -3px 3px rgb(0, 0, 0),
+                    inset 3px 3px 3px rgb(131, 131, 131);
       }      
     footer {
       margin-top: 1em;
@@ -150,6 +154,9 @@ html {
           footer {
             bottom: -50%;
           }
+      main .reset {
+        font-size: 1.5em;
+      }
   }
   @media screen and (min-width: 1200px) {
     html {
