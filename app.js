@@ -161,6 +161,3 @@ function generateGrids() {
 }
 
 generateGrids();
-
-
-
