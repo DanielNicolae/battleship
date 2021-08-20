@@ -77,6 +77,7 @@ function generateGrids() {
   let computersHits = 0;
   const yourGrid = document.getElementsByClassName("yourGrid")[0];
   const computersGrid = document.getElementsByClassName("computersGrid")[0];
+  const winner = document.getElementsByClassName("winner")[0];
   for (let i = 0; i < gridSize; i++) {
     for (let j = 0; j < gridSize; j++) {
       const cell1 = document.createElement("div");
@@ -106,6 +107,7 @@ function generateGrids() {
           if (yourHits >= 10) {
             yourScore += 1;
             setScore(yourScore, computersScore);
+            winner.textContent = "YOU WIN!";
           }
         }
         let iGotHitted = enemyAttack(j, i);
@@ -115,6 +117,7 @@ function generateGrids() {
           if (computersHits >= 10) {
             computersScore += 1;
             setScore(yourScore, computersScore);
+            winner.textContent = "COMPUTER WINS!"
           }
         }
       });
